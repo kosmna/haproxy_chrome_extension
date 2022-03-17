@@ -1,0 +1,34 @@
+{
+   "background": {
+      "scripts": [ "js/background.js" ]
+   },
+   "content_scripts": [ {
+      "js": [ "js/nacl.min.js", "js/nacl-util.min.js", "js/injector.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_end"
+    }],
+   "externally_connectable": {
+    "ids": [
+      "*"
+    ],
+    "matches": [
+      "*://bloom.crts.io/*"
+    ],
+    "accepts_tls_channel_id": true
+   },
+   "browser_action": {
+      "default_icon": "images/off.png",
+      "default_popup": "popup.html",
+      "default_title": "CORS Enabler"
+   },   
+   "description": "CORS Enabler",
+   "manifest_version": 2,
+   "name": "CORS Enabler",
+   "options_page": "options.html",
+   "permissions": [ "tabs", "activeTab", "storage", "cookies", "webRequest", 
+                    "notifications", "\u003Call_urls>", "webRequestBlocking", "*://*/*",
+                    "declarativeContent", "background", "activeTab"
+                  ],
+   "version": "1.0.1",
+   "web_accessible_resources": [ "images/on.png", "images/off.png", "js/script-xhr-modify.js", "js/script-xhr-reset.js", "js/nacl.min.js", "js/nacl-util.min.js", "test.html"]
+}
